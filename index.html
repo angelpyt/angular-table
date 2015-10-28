@@ -15,7 +15,7 @@
 
 		<!-- Add attributes (angular directives) to this div 
 			to instantiate your application and set the controller -->
-		<div class="container">
+		<div class="container" ng-app="sortApp" ng-controller="mainController">
 
 			<h1>Who is UW paying the most?</h1>			
 			<form>
@@ -28,10 +28,10 @@
 				<div class="alert">
 
 					<!-- Add an expression to show your sortType variable -->
-					<p><strong>Sort by:</strong></p>
+					<p ng-><strong>Sort by:{{sortTpe}}</strong></p>
 
 					<!-- Add an expression to show your search variable -->
-					<p><strong>Search String:</strong></p>
+					<p><strong>Search String:{{search}}</strong></p>
 
 				</div>
 			</form>
@@ -42,27 +42,29 @@
 						<td>
 
 							<!-- Add an ng-click event to set the variable sortType equal to 'name' -->
-							<a href="#">Name</a>
+							<a href="#" ng-click="sortType = 'name'">Name</a>
 						</td>
 						<td>
 							<!-- Add an ng-click event to set the variable sortType equal to 'job_title' -->
-							<a href="#">Job Title</a>
+							<a href="#" ng-click="sortType = 'job_titile'">Job Title</a>
 						</td>
 						<td>
 							<!-- Add an ng-click event to set the variable sortType equal to 'salary' -->
-							<a href="#">Salary</a>
+							<a href="#" ng-click="sortType = 'salary'">Salary</a>
 						</td>
 					</tr>
 				</thead>
 				<tbody>
 
 					<!-- Create a table row for each person in your data object -->
-					
+					<table>
 						
 						<!-- Create 3 <td> elements to display name, job_title, and salary -->
-						
+						<td>{{name}}</td>
+                        <td>{{job_title}}</td>
+                        <td>{{salary}}</td>
 
-
+                    <table>
 				</tbody>
 			</table>
 		</div>
