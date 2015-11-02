@@ -28,7 +28,7 @@
 				<div class="alert">
 
 					<!-- Add an expression to show your sortType variable -->
-					<p ng-><strong>Sort by:{{sortTpe}}</strong></p>
+					<p><strong>Sort by: {{sortType}}</strong></p>
 
 					<!-- Add an expression to show your search variable -->
 					<p><strong>Search String:{{search}}</strong></p>
@@ -42,29 +42,30 @@
 						<td>
 
 							<!-- Add an ng-click event to set the variable sortType equal to 'name' -->
-							<a href="#" ng-click="sortType = 'name'">Name</a>
+							<a href="#" ng-click="sortType='name'">Name</a>
 						</td>
 						<td>
 							<!-- Add an ng-click event to set the variable sortType equal to 'job_title' -->
-							<a href="#" ng-click="sortType = 'job_titile'">Job Title</a>
+							<a href="#" ng-click="sortType='job_title'">Job Title</a>
 						</td>
 						<td>
 							<!-- Add an ng-click event to set the variable sortType equal to 'salary' -->
-							<a href="#" ng-click="sortType = 'salary'">Salary</a>
+							<a href="#" ng-click="sortType='-salary'">Salary</a> <!-- if you want to do reverse orderby, make if sortType = '-salary' -->
 						</td>
 					</tr>
 				</thead>
 				<tbody>
 
 					<!-- Create a table row for each person in your data object -->
-					<table>
+					<tr ng-repeat = "person in data | orderBy: sortType | filter: search">
 						
 						<!-- Create 3 <td> elements to display name, job_title, and salary -->
-						<td>{{name}}</td>
-                        <td>{{job_title}}</td>
-                        <td>{{salary}}</td>
+						<td>{{person.name}}</td>
+						<td>{{person.job_title}}</td>
+						<td>{{person.salary | currency : '$' :0}}</td>
 
-                    <table>
+					</tr>
+				
 				</tbody>
 			</table>
 		</div>
